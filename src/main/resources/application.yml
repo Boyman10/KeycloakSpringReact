@@ -10,6 +10,23 @@ spring:
             client-id: 0oagwsc65d69QZbSV0h7
             client-secret: iOllUkxXZF_lRO6f-jymi9nicEq7O8m8Corx0IKO
             scope: openid, email, profile
+
+          keycloak:
+            client-id: rhm-gateway
+            client-secret: be20f0a6-40dc-4e9b-a469-771685f0e613
+            client-name: RHM
+            provider: keycloak
+            scope: openid, email, profile
+            authorization-grant-type: authorization_code
+            redirect-uri-template: '{baseUrl}/login/oauth2/code/{registrationId}'
+
         provider:
           okta:
             issuer-uri: https://dev-483475.oktapreview.com/oauth2/default
+          keycloak:
+            authorization-uri: http://192.168.99.100:8080/auth/realms/RHM/protocol/openid-connect/auth
+            token-uri: http://192.168.99.100:8080/auth/realms/RHM/protocol/openid-connect/token
+            user-info-uri: http://192.168.99.100:8080/auth/realms/RHM/protocol/openid-connect/userinfo
+            user-info-authentication-method: header
+            jwk-set-uri: http://192.168.99.100:8080/auth/realms/RHM/protocol/openid-connect/certs
+            user-name-attribute: preferred_username
