@@ -1,0 +1,15 @@
+server:
+  port: 90
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          okta:
+            client-id: 0oagwsc65d69QZbSV0h7
+            client-secret: iOllUkxXZF_lRO6f-jymi9nicEq7O8m8Corx0IKO
+            scope: openid, email, profile
+        provider:
+          okta:
+            issuer-uri: https://dev-483475.oktapreview.com/oauth2/default
